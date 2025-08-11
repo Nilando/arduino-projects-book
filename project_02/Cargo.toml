@@ -1,0 +1,20 @@
+[package]
+name = "project_02"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+arduino-hal = { git = "https://github.com/Rahix/avr-hal.git", features = ["arduino-uno"]}
+panic-halt = "1.0.0"
+ufmt = "0.2.0"
+
+[profile.dev]
+panic="abort"
+lto = true
+opt-level = "s"
+
+[profile.release]
+panic="abort"
+lto = true
+opt-level = "s"
