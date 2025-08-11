@@ -11,7 +11,6 @@ use arduino_hal::prelude::*;
 fn main() -> ! {
     let dp = arduino_hal::Peripherals::take().unwrap();                                        
     let pins: Pins = arduino_hal::pins!(dp);                                    
-    let mut serial = arduino_hal::default_serial!(dp, pins, 57600);
     let mut led_pins = [
         pins.d3.into_output().downgrade(),
         pins.d4.into_output().downgrade(),
@@ -23,6 +22,8 @@ fn main() -> ! {
         pins.d9.into_output().downgrade(),
         pins.d10.into_output().downgrade(),
     ];
+
+    let mut serial = arduino_hal::default_serial!(dp, pins, 57600);
     let mut adc = Adc::new(dp.ADC, Default::default());
     let temp_pin = pins.a0.into_analog_input(&mut adc);
 
