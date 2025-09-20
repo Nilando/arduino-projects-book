@@ -2,10 +2,8 @@
 #![no_main]
 
 use arduino_hal::prelude::_unwrap_infallible_UnwrapInfallible;
-use arduino_hal::simple_pwm::{IntoPwmPin, Prescaler, Timer1Pwm, Timer2Pwm};
-use arduino_hal::{Adc, Pins};
+use arduino_hal::Adc;
 use panic_halt as _;
-use arduino_hal::prelude::*;
 
 #[arduino_hal::entry]
 fn main() -> ! {
@@ -40,4 +38,5 @@ fn main() -> ! {
         // 700 counts => 2.8ms
         tc1.ocr1a.write(|w| w.bits(duty as u16));
         arduino_hal::delay_ms(20);
-    }}
+    }
+}
