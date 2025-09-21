@@ -150,7 +150,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "project_06"
+name = "project_02"
 version = "0.1.0"
 dependencies = [
  "arduino-hal",
