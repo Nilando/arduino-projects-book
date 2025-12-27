@@ -1,0 +1,23 @@
+[package]
+name = "project_02"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ag-lcd = "0.3.0"
+
+arduino-hal = { git = "https://github.com/Rahix/avr-hal.git", features = ["arduino-uno"]}
+heapless = "0.9.1"
+panic-halt = "1.0.0"
+ufmt = "0.2.0"
+rand = { version = "0.8", default-features = false, features = ["small_rng"] }
+
+[profile.dev]
+panic="abort"
+lto = true
+opt-level = "s"
+
+[profile.release]
+panic="abort"
+lto = true
+opt-level = "s"
